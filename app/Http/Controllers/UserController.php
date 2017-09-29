@@ -39,7 +39,7 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'roles' => 'array',
+            'roles' => 'required|array|min:1',
         ]);
 
         $model = new User();
@@ -92,7 +92,7 @@ class UserController extends Controller
                 Rule::unique('users')->ignore($id),
             ],
             'password' => 'nullable|string|min:6|confirmed',
-            'roles' => 'array',
+            'roles' => 'required|array|min:1',
         ], [], [
             'roles.admin' => 'Admin role'
         ]);
@@ -126,7 +126,7 @@ class UserController extends Controller
         // Sync roles array
         $model->roles()->sync($request->input('roles'));
 
-        return redirect('/users/' . $model->getKey() . '/edit');
+        return redirect('/users/' . $model->getKey())->with('status', 'Model updated!');
     }
 
     /**

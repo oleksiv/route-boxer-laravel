@@ -1,23 +1,19 @@
-<template>
+@extends('layouts.app')
+
+@section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Example Component</div>
+                    <div class="panel-heading">Search Tours</div>
 
                     <div class="panel-body">
-                        I'm an example component!
+                        @include('layouts.session')
+
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</template>
-
-<script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
-</script>
+@endsection

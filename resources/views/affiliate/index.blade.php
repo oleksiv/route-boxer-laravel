@@ -6,34 +6,36 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Users
-                        <a href="{{ url('/users/create') }}" class="btn btn-xs btn-primary pull-right">Create new</a>
+                        Affiliates
+                        <a href="{{ url('/affiliates/create') }}" class="btn btn-xs btn-primary pull-right">Create new</a>
                     </div>
 
                     <div class="panel-body">
 
-                        @include('layouts.session')
+                            @include('layouts/session')
 
-                        <table class="table">
+                            <table class="table">
                                 <thead>
                                     <tr>
                                         <th>#</th>
                                         <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Date Created</th>
+                                        <th>Address</th>
+                                        <th>Latitude</th>
+                                        <th>Longitude</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($models as $model)
                                     <tr>
                                         <td>
-                                            <a href="{{ url('/users/' . $model->getKey()) }}">{{$model->id}}</a>
+                                            <a href="{{ url('/affiliates/' . $model->getKey()) }}">{{ $model->getKey() }}</a>
                                         </td>
                                         <td>
-                                            <a href="{{ url('/users/' . $model->getKey() . '/edit') }}">{{$model->name}}</a>
+                                            <a href="{{ url('/affiliates/' . $model->getKey() . '/edit') }}">{{ $model->name }}</a>
                                         </td>
-                                        <td>{{$model->email}}</td>
-                                        <td>{{$model->created_at}}</td>
+                                        <td>{{ $model->address }}</td>
+                                        <td>{{ $model->latitude }}</td>
+                                        <td>{{ $model->longitude }}</td>
                                     </tr>
                                 @endforeach
 

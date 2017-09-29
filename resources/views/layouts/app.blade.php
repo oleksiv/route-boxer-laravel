@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ app()->getLocale() }}" ng-app="App">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +14,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+
+    <div>
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -36,17 +37,38 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+                        @role('admin')
                         <li>
-                            <a href="{{ url('/users') }}">Users</a>
+                                <a href="{{ url('/users') }}">Users</a>
                         </li>
+                        @endrole
+                        @role('admin')
+
                         <li>
                             <a href="{{ url('/languages') }}">Languages</a>
                         </li>
+                        @endrole
+
+                        @role('admin')
+
                         <li>
                             <a href="{{ url('/tours') }}">Tours</a>
                         </li>
+                        @endrole
+
+                        @role('admin')
+
                         <li>
                             <a href="{{ url('/affiliates') }}">Affiliates</a>
+                        </li>
+                        @endrole
+
+                        <li>
+                            <a href="{{ url('/affiliates/search') }}">Search Affiliates</a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url('/tours/search') }}">Search Tours</a>
                         </li>
                     </ul>
 

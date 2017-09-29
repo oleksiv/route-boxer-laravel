@@ -15,7 +15,14 @@ class CreateAffiliatesTable extends Migration
     {
         Schema::create('affiliates', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('address');
+            $table->text('description');
+            $table->float('latitude', 10, 6);
+            $table->float('longitude', 10, 6);
             $table->timestamps();
+
+            $table->index(['latitude', 'longitude']);
         });
     }
 

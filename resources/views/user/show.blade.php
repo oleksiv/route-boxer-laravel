@@ -12,35 +12,9 @@
 
                     <div class="panel-body">
 
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Field</th>
-                                    <th>Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>{{ $model->name }}</td>
-                                </tr>
+                        @include('layouts.session')
 
-                                <tr>
-                                    <td>Email</td>
-                                    <td>{{ $model->email }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Created At</td>
-                                    <td>{{ $model->created_at }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Updated At</td>
-                                    <td>{{ $model->updated_at }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        @include('layouts.show')
 
                         <hr>
 
@@ -48,6 +22,7 @@
                         <table class="table">
                             <thead>
                             <tr>
+                                <th>#</th>
                                 <th>Name</th>
                                 <th>Full Name</th>
                                 <th>Role Description</th>
@@ -56,6 +31,7 @@
                             <tbody>
                             @foreach($model->roles as $item)
                                 <tr>
+                                    <td>{{ $item->getKey() }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->display_name }}</td>
                                     <td>{{ $item->description }}</td>
