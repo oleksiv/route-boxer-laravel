@@ -4,12 +4,14 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\App;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 
 /**
  * Class User
  * @package App
+ * @property string $name
  * @property string $email
  * @property string $password
  */
@@ -34,4 +36,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
 }
