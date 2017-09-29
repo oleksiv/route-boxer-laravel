@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
         $user->save();
 
 
-        $owner = \App\Role::where(['name' => 'admin'])->first();
-        $user->attachRole($owner);
+        $role = \App\Role::where(['name' => 'admin'])->first();
+        $user->attachRole($role);
     }
 }

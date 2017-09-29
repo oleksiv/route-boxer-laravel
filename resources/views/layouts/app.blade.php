@@ -36,7 +36,18 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        <li>
+                            <a href="{{ url('/users') }}">Users</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/languages') }}">Languages</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/tours') }}">Tours</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/affiliates') }}">Affiliates</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
